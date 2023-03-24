@@ -1,0 +1,88 @@
+/* Micro desafio 1 */
+
+/* 1 */
+
+
+insert into movies_db.genres (name, ranking, active)
+values ("Investigación",13,1);
+
+select * from movies_db.genres;
+
+/* 2 */
+
+update movies_db.genres 
+set name = "Investigación Científica"
+where name = "Investigación";
+
+select * from movies_db.genres;
+
+/* 3 */
+select name, id from movies_db.genres;
+
+
+delete from movies_db.genres 
+where name = "Investigación Científica";
+
+select * from movies_db.genres;
+
+
+/* 4 */
+
+select * from movies_db.movies;
+
+/* 5 */
+
+select first_name as "nombre", last_name as "apellido", rating from movies_db.actors;
+
+/* 6 */
+
+select title as "serie" from movies_db.series;
+
+/* Micro desafio 2 */
+
+/* 1 */
+select first_name as "nombre", last_name as "apellido", rating from movies_db.actors
+where rating > 7.5;
+/* 2 */
+select title as "titulo", rating, awards as "Premios" from movies_db.movies
+where rating > 7.5 and awards > 2;
+/* 3 */
+select title as "titulo", rating from movies_db.movies
+order by rating asc;
+
+/* Micro desafio 3 */
+
+/* 1 */
+select title from movies_db.movies
+limit 3;
+/* 2 */
+select title, rating from movies_db.movies
+order by rating desc 
+limit 5;
+/* 3 */
+select title as "Top 5 - 10", rating from movies_db.movies
+order by rating desc 
+limit 5
+offset 5;
+/* 4 */
+select first_name as "Nombre", last_name as "Apellido" from movies_db.actors
+limit 10;
+
+select first_name as "Nombre", last_name as "Apellido" from movies_db.actors
+limit 10
+offset 30;
+
+/* Micro desafio 4 */
+
+/* 1 */
+select title, rating from movies_db.movies
+where title like '%Harry Potter%';
+
+/* 2 */
+select first_name, last_name from movies_db.actors
+where first_name like 'Sam%'
+
+/* 3 */
+select title, release_date from movies_db.movies
+where extract(year from release_date) between 2004 and 2008;
+
